@@ -6,10 +6,11 @@
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 16:55:39 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:39:14 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 void	ft_memset(void *s, int c, size_t n)
 {

@@ -6,10 +6,11 @@
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:39:12 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

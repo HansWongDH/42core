@@ -6,10 +6,11 @@
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 10:07:02 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:39:11 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

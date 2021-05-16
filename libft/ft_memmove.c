@@ -6,10 +6,11 @@
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:44:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:39:13 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
