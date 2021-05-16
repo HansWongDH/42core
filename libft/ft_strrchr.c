@@ -6,13 +6,15 @@
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 06:50:23 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:20:37 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:54:13 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *str, int c)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen((char *)str);
 	while (len > 0)
