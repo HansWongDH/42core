@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 15:01:11 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/13 06:48:03 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 07:19:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 char	*ft_strchr(const char *str, int c)
 {
-	int i;
-	
-	while ((char *)str)
+	while (*str)
 	{
-		
-
-	return (0);
+		if (*str == (char)c)
+		{
+			return ((char *)str);
+		}
+		str++;
+	}
+	return (NULL);
 }
