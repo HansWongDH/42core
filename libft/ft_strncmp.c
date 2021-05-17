@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 08:00:08 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 09:30:22 by wding-ha         ###   ########.fr       */
+/*   Created: 2021/05/17 08:52:11 by wding-ha          #+#    #+#             */
+/*   Updated: 2021/05/17 09:29:22 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+int	ft_strncmp( const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	size_t	j;
 
+	if (s1 == s2 || n == 0)
+		return (0);
 	i = 0;
-	while (s1[i] && i < n)
+	while (i < n && *s1 == *s2)
 	{
-		j = 0;
-		while (s1[i + j] == s2[j])
-		{
-			if (s2[j + 1] == '\0')
-				return ((char *)s1 + i);
-			j++;
-		}
-		i++;
+		s1++;
+		s2++;
 	}
-	return (NULL);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

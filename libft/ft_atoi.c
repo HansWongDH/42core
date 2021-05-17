@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 08:00:08 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 09:30:22 by wding-ha         ###   ########.fr       */
+/*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
+/*   Updated: 2021/05/17 09:30:51 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+int	atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	long	i;
+	int		sign;
 
-	i = 0;
-	while (s1[i] && i < n)
+	sign = 1;
+	while (*str == 32 || (*str > 9 && *str < 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		j = 0;
-		while (s1[i + j] == s2[j])
-		{
-			if (s2[j + 1] == '\0')
-				return ((char *)s1 + i);
-			j++;
-		}
-		i++;
+		if (str == '-')
+			sign *= -1;
+		str++;
 	}
-	return (NULL);
+	while (*str >= 48 && *str <= 57)
+	{
+		i *= 10;
+		i += *s - 48;
+		str++;
+	}
+	return (sign * (int)i);
 }
