@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 11:18:28 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 12:06:39 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/17 12:12:55 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	len = ft_strlen(s1) + ft_strlen(s2);
-	printf("%d", len);
-	join = (char *)malloc(sizeof(char) * (len + 1));
+	join = malloc(sizeof(char) * (len + 1));
 	if (join == NULL)
 		return (NULL);
 	while (*s1)
