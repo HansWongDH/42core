@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:49:38 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/13 15:53:37 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/18 21:14:46 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if ((char)c >= 48 && (char)c <= 57)
+	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }

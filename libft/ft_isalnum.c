@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:57:40 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/13 16:06:20 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:42:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(int c)
 {
-	if ((char)c >= 48 && (char)c <= 57)
+	if (c >= 48 && c <= 57)
 		return (1);
-	if ((char)c >= 65 && (char)c <= 90)
+	if (c >= 65 && c <= 90)
 		return (1);
-	if ((char)c >= 97 && (char)c <= 122)
+	if (c >= 97 && c <= 122)
 		return (1);
 	return (0);
 }

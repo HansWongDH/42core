@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:16:51 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/13 16:48:14 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:42:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if ((char)c >= 0 && (char)c <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

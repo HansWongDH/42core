@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:19:51 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/13 16:22:18 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:42:59 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if ((char)c >= 20 && (char)c <= 126)
+	if (c >= 20 && c <= 126)
 		return (1);
 	return (0);
 }
