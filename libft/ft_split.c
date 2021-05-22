@@ -6,14 +6,14 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 22:17:05 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:30:47 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-void	**freemalloc(char **arr)
+void	freemalloc(char **arr)
 {
 	int	i;
 

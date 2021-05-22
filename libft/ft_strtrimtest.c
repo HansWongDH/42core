@@ -1,53 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strtrimtest.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:51:58 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:31:41 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/19 16:38:08 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-int	searchchr(char const *set, char c)
-{
-	int	i;
 
-	i = 0;
-	while (set[i])
+
+int	setsize(char const *s1, char const *set)
+{
+	int		i;
+	int		size;
+
+	size = 0;
+	while (*s1)
 	{
-		if (set[i] == c)
-			return (1);
-		i++;
+		i = 0;
+		while (*(s1 + i) == set[i])
+		{
+			if (set[i + 1] == '\0')
+			{
+				size += i;
+				i = 0;
+				break ;
+			}
+			i++;
+		}
+		s1++;
 	}
-	return (0);
+	return (size);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		i;
 	char	*ret;
+	int		del;
+	int		i;
 
-	start = 0;
-	while (s1[start] && searchchr(set, s1[start]))
-		start++;
-	end = ft_strlen(s1);
-	while (end > start && searchchr(set, s1[end - 1]))
-		end--;
-	ret = malloc(sizeof(char) * end - start + 1);
+	del = setsize(s1, set);
+	ret = malloc(sizeof(char) * ft_strlen(s1) - del + 1);
 	if (ret == NULL)
 		return (NULL);
 	i = 0;
-	while (start < end)
+	while (*s1)
 	{
-		ret[i++] = s1[start++];
+		ret[i] =
 	}
-	ret[i] = '\0';
-	return (ret);
+	
+}
+
+int	main(void)
+{
+	char	s1[20] = "HELOLOLOLWORLDLO";
+	char	s2[3] = "LO";
+	char	*s3;
+
+	s3 = ft_strtrim(s1, s2);
+	printf("%s", s3);
+	free(s3);
 }

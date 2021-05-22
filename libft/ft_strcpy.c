@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 06:50:23 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:32:27 by wding-ha         ###   ########.fr       */
+/*   Created: 2021/05/19 15:53:02 by wding-ha          #+#    #+#             */
+/*   Updated: 2021/05/19 16:00:54 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	int	len;
+	size_t	i;
+	int		ret;
 
-	len = ft_strlen(str);
-	while (len > 0)
+	i = 0;
+	while (src[i])
 	{
-		if (str[len] == (char)c)
-		{
-			return ((char *)str + len);
-		}
-		len--;
+		dest[i] = src[i];
+		i++;
 	}
-	return (NULL);
+	dest[i] = '\0';
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 09:30:51 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:22:44 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	atoi(const char *str)
 		str++;
 	if (*str == '+' || *str == '-')
 	{
-		if (str == '-')
+		if (*str == '-')
 			sign *= -1;
 		str++;
 	}
 	while (*str >= 48 && *str <= 57)
 	{
 		i *= 10;
-		i += *s - 48;
+		i += *str - 48;
 		str++;
 	}
 	return (sign * (int)i);
