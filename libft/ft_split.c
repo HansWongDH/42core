@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:30:47 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 00:01:32 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	**memalloc(char *s, char c)
 	arr = (char **)malloc(sizeof(char) * sep);
 	len = 0;
 	sep = 0;
+	i = 0;
 	while (s[i])
 	{
 		len++;

@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:22:44 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 00:01:00 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	atoi(const char *str)
 	int		sign;
 
 	sign = 1;
+	i = 0;
 	while (*str == 32 || (*str > 9 && *str < 13))
 		str++;
 	if (*str == '+' || *str == '-')
