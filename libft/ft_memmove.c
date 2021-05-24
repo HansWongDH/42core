@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:44:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 03:10:18 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!n || !dest)
+		return ;
 	if (src < dest)
 	{
 		while (n > 0)
