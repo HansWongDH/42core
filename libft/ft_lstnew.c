@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 19:46:11 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:25:07 by wding-ha         ###   ########.fr       */
+/*   Created: 2021/05/23 21:27:28 by wding-ha          #+#    #+#             */
+/*   Updated: 2021/05/23 22:06:28 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(void *src, int c, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*hold;
 
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			return (src + i);
-		i++;
-	}
-	return (0);
+	hold = (t_list *)malloc(sizeof(hold));
+	if (!hold)
+		return (NULL);
+	hold->content = content;
+	hold->next = NULL;
+	return (hold);
 }

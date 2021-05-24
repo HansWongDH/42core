@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 19:46:11 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:25:07 by wding-ha         ###   ########.fr       */
+/*   Created: 2021/05/24 21:11:11 by wding-ha          #+#    #+#             */
+/*   Updated: 2021/05/24 21:18:13 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(void *src, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
+	t_list	*hold;
+	t_list	*elem;
 
-	i = 0;
-	while (i < n)
+	if (!lst)
+		return (NULL);
+	while (lst)
 	{
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			return (src + i);
-		i++;
+		elem = ft_lstnew(f(lst->content));
+		if (!elem)
+		{
+			ft_lstclear(&hold, del);
+			break ;
+		}
+		ft_lstadd_back(&hold, elem);
+		lst = lst->next;
 	}
-	return (0);
+	return (hold);
 }
