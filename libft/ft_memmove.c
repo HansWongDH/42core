@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:44:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 18:56:55 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:02:20 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dest && !src)
+		return (NULL);
 	if (src < dest)
 	{
 		i = n;
