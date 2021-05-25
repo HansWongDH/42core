@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 21:32:10 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/24 22:42:57 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:47:31 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (lst && new)
 	{
-		(*lst)->next = new;
-		new = *lst;
+		new->next = *lst;
+		*lst = new;
 	}
 }

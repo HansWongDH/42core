@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 21:11:11 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/24 21:18:13 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 15:02:32 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst)
 		return (NULL);
-	while (lst)
+	while (lst != NULL)
 	{
 		elem = ft_lstnew(f(lst->content));
 		if (!elem)
