@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 00:01:32 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 23:02:23 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ char	**memalloc(char *s, char c)
 		i++;
 	}
 	if (arr == NULL)
-	{
-		freemalloc(arr);
-		return (NULL);
-	}
+		return (freemalloc(arr));
 	return (arr);
 }
 
@@ -76,9 +73,11 @@ char	**ft_split(char const *s, char c)
 	int		sep;
 	int		i;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	arr = memalloc((char *)s, c);
+	if (!arr)
+		return (NULL);
 	i = 0;
 	sep = 0;
 	while (*s)
