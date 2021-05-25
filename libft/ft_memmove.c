@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:44:22 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:28:55 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 17:16:06 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,22 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!n || !dest)
+	if (src < dest)
 	{
-		if (src < dest)
+		i = n;
+		while (i > 0)
 		{
-			while (n > 0)
-			{
-				((char *)dest)[n - 1] = ((char *)src)[n - 1];
-				n--;
-			}
+			((char *)dest)[i - 1] = ((char *)src)[i - 1];
+			i--;
 		}
-		else
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
 		{
-			i = 0;
-			while (i < n)
-			{
-				((char *)dest)[i] = ((char *)src)[i];
-				i++;
-			}
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
 		}
 	}
 	return (dest);
