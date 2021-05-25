@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:40:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/19 14:42:59 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 22:31:12 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,16 @@ char	*ft_itoa(int n)
 	num = n;
 	num *= sign;
 	i = ft_intlen(num, sign);
-	hold = malloc(sizeof(char) * i + 1);
-	if (hold == NULL)
+	hold = ft_calloc(i + 1, 1);
+	if (!hold)
 		return (NULL);
 	if (sign < 0)
 		hold[0] = '-';
-	hold[i - 1] = '\0';
-	while (i-- > 0)
+	if (n == 0)
+		hold[0] = '0';
+	while (n)
 	{
-		if (sign < 0 && i == 0)
-			break ;
-		hold[i] = '0' + (num % 10);
+		hold[i-- -1] = '0' + (num % 10);
 		num /= 10;
 	}
 	return (hold);

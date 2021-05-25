@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 23:02:23 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 23:46:44 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,29 @@ void	freemalloc(char **arr)
 
 int	numstr(char *s, char c)
 {
+	int	count;
 	int	i;
-
-	i = 1;
-	while (*s)
+	
+	i = 0;
+	if (s[i] != c && s[i] != '\0')
+		count = 1;
+	else
+		count = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			i++;
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			count++;
 		s++;
 	}
-	return (i);
+	return (count);
 }
 
-char	**memalloc(char *s, char c)
+char	**memalloc(char *s, char c, int sep)
 {
 	int		i;
-	int		sep;
 	int		len;
 	char	**arr;
 
-	sep = numstr((char *)s, c);
 	arr = (char **)malloc(sizeof(char) * sep);
 	len = 0;
 	sep = 0;
@@ -57,13 +60,17 @@ char	**memalloc(char *s, char c)
 		len++;
 		if (s[i + 1] == c || s[i + 1] == '\0')
 		{
-			arr[sep++] = (char *)malloc(sizeof(char) * len + 1);
+			arr[sep] = ft_calloc(len + 1, 1);	
+			if (arr[sep] == NULL)
+			{
+				freemalloc(arr);
+				return (NULL);
+			}
+			sep++;
 			len = 0;
 		}
 		i++;
 	}
-	if (arr == NULL)
-		return (freemalloc(arr));
 	return (arr);
 }
 
@@ -75,7 +82,8 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	arr = memalloc((char *)s, c);
+	sep = numstr((char *)s, c);
+	arr = memalloc((char *)s, c, sep);
 	if (!arr)
 		return (NULL);
 	i = 0;
@@ -85,10 +93,7 @@ char	**ft_split(char const *s, char c)
 		if (*s && *s != c)
 			arr[sep][i++] = *s;
 		if (*s == c || *s == '\0')
-		{
-			arr[sep++][i] = '\0';
 			i = 0;
-		}
 		s++;
 	}
 	return (arr);
