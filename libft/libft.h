@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 07:29:06 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 14:55:47 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 15:18:03 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 int		ft_strncmp( const char *s1, const char *s2, size_t n);
-int		atoi(const char *str);
+int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
