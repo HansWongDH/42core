@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:20:03 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:34:58 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 
 	sign = 1;
 	i = 0;
-	while (*str == 32 || (*str > 9 && *str < 13))
+	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '+' || *str == '-')
 	{
@@ -29,9 +29,8 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= 48 && *str <= 57)
 	{
-		i *= 10;
-		i += *str - 48;
+		i = i * 10 + (*str - '0');
 		str++;
 	}
-	return (sign * i);
+	return ((long)sign * i);
 }
