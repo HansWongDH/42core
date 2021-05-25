@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wding-ha <wding@student.42kl.edu.my>       +#+  +:+       +#+        */
+/*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:08:50 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/17 07:43:15 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:49:14 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < n)
+	if (!dest && !src)
+		return (NULL);
+	i = n;
+	while (i > 0)
 	{
 		((char *)dest)[i] = ((char *)src)[i];
-		i++;
+		i--;
 	}
 	return (dest);
 }
