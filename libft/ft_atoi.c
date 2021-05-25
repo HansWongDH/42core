@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 15:17:50 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 15:20:03 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	ft_atoi(const char *str)
 		i += *str - 48;
 		str++;
 	}
-	return (sign * (int)i);
+	return (sign * i);
 }

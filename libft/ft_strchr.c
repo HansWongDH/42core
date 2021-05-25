@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 15:01:11 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 03:03:49 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 17:31:29 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	if (c != 0)
+	while (*str)
 	{
-		while (*str)
-		{
-			if (*str == (char)c)
-			{
-				return ((char *)str);
-			}
-			str++;
-		}
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
 	}
 	return (NULL);
 }
