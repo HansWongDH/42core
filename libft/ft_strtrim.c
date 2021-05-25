@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:51:58 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/22 23:31:41 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/25 17:39:07 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	char	*ret;
 
+	if (!s1)
+		return (NULL);
 	start = 0;
 	while (s1[start] && searchchr(set, s1[start]))
 		start++;
