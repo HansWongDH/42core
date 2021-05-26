@@ -6,60 +6,67 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 16:29:05 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:57:37 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	word_count(char const *s, char c)
-{
-	int	i;
-	int	word_count;
+#include <stdio.h>
+#include "libft.h"
 
-	i = 0;
-	if (s[i] != c && s[i] != '\0')
-		word_count = 1;
-	else
-		word_count = 0;
-	while (s[i])
+int	freemalloc(char **arr, int sep)
+{
+	while (arr[sep])
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-			word_count++;
-		i++;
+		free(arr[sep]);
+		sep--;
 	}
-	return (word_count);
-}
-
-int	free_arr(char **arr, int count)
-{
-	while (--count >= 0)
-		free(arr[count]);
 	free(arr);
 	return (0);
 }
 
-int	split_it(char const *s, char c, char **arr, int words)
+int	numstr(char *s, char c)
 {
-	int		count;
+	int	i;
+	int	len;
+
+	if (s[i] != c && s[i] != '\0')
+		len = 1;
+	else
+		len = 0;
+	while (s[i])
+	{
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+		{
+			i++;
+			len++;
+		}
+	}
+	return (len);
+}
+
+int	splitloc(char const *s, char c, char **arr, int sep)
+{
+	int		i;
 	int		len;
 	char	*str;
 
-	count = 0;
-	while (count < words)
+	while (i < sep)
 	{
 		len = 0;
-		while (s[len] != c && s[len] != '\0')
+		while (*s != c && *s != '\0')
+		{
 			len++;
-		if (len)
+			s++;
+		}
+		if (len != 0)
 		{
 			str = ft_calloc(len + 1, 1);
 			if (!str)
-				return (free_arr(arr, count));
-			arr[count] = ft_memcpy(str, s, len);
-			count++;
-			s = &s[len];
+				return (freemalloc(arr, i));
+			arr[i] = ft_memcpy(str, s, len);
+			i++;
 		}
-		while (*s == c)
-			s++;
+		s++;
 	}
 	return (1);
 }
@@ -67,16 +74,14 @@ int	split_it(char const *s, char c, char **arr, int words)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		words;
+	int		size;
 
-	if (!s)
-		return (NULL);
-	words = word_count(s, c);
-	arr = (char **)malloc(words * sizeof(char *) + 1);
+	size = numstr(s, c);
+	arr = malloc(sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);
-	if (!split_it(s, c, arr, words))
+	if (splitloc(s, c, arr, size) != 1)
 		return (NULL);
-	arr[words] = NULL;
+	arr[size] = NULL;
 	return (arr);
 }
