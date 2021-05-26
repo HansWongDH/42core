@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 19:03:23 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:10:24 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,8 @@ int	splitloc(char const *s, char c, char **arr, int sep)
 	while (i < sep)
 	{
 		len = 0;
-		while (*s != c && *s != '\0')
-		{
+		while (s[len] != c && s[len] != '\0')
 			len++;
-			s++;
-		}
 		if (len != 0)
 		{
 			str = ft_calloc(len + 1, 1);
@@ -67,8 +64,10 @@ int	splitloc(char const *s, char c, char **arr, int sep)
 				return (freemalloc(arr, i));
 			arr[i] = ft_memcpy(str, s, len);
 			i++;
+			s = &s[len];
 		}
-		s++;
+		while (*s == c)
+			s++;
 	}
 	return (1);
 }
