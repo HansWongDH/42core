@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:40:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 22:31:12 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:30:26 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ int	ft_intlen(long n, int sign)
 
 	len = 0;
 	if (sign < 0)
-	{
 		len = 1;
-	}
+	if (n == 0)
+		len += 1;
 	while (n)
 	{
-		len++;
-		if (n / 10 == 0)
-			break ;
 		n /= 10;
+		len++;
 	}
 	return (len);
 }
@@ -40,9 +38,9 @@ char	*ft_itoa(int n)
 	long	num;
 
 	sign = 1;
-	if (n < 0)
+	num = (long)n;
+	if (num < 0)
 		sign *= -1;
-	num = n;
 	num *= sign;
 	i = ft_intlen(num, sign);
 	hold = ft_calloc(i + 1, 1);
@@ -52,7 +50,7 @@ char	*ft_itoa(int n)
 		hold[0] = '-';
 	if (n == 0)
 		hold[0] = '0';
-	while (n)
+	while (num)
 	{
 		hold[i-- -1] = '0' + (num % 10);
 		num /= 10;
