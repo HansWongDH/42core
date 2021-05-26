@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 19:12:46 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:14:54 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int	freemalloc(char **arr, int sep)
 {
-	while (--sep >= 0)
+	sep -= 1;
+	while (sep >= 0)
 	{
 		free(arr[sep]);
 		sep--;
@@ -62,7 +63,7 @@ int	splitloc(char const *s, char c, char **arr, int sep)
 				return (freemalloc(arr, i));
 			arr[i] = ft_memcpy(str, s, len);
 			i++;
-			s = &s[len];
+			s += len + 1;
 		}
 		while (*s == c)
 			s++;
