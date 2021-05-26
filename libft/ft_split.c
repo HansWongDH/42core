@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 19:00:16 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:03:23 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	freemalloc(char **arr, int sep)
 {
-	while (sep >= 0)
+	while (--sep >= 0)
 	{
 		free(arr[sep]);
 		sep--;
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	int		size;
 
-	size = numstr(s, c);
+	size = numstr((char *)s, c);
 	arr = malloc(sizeof(char *) * (size + 1));
 	if (!arr)
 		return (NULL);
