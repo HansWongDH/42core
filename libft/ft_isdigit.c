@@ -6,9 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:49:38 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/18 21:14:46 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:27:12 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

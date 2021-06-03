@@ -6,11 +6,10 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 19:17:08 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:27:44 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 int	freemalloc(char **arr, int sep)

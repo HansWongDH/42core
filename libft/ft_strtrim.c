@@ -6,11 +6,10 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:51:58 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 17:39:07 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:28:12 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 int	searchchr(char const *set, char c)

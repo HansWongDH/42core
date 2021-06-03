@@ -6,12 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:40:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 15:30:26 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:27:18 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_intlen(long n, int sign)
 {

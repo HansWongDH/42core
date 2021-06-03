@@ -6,9 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:16:51 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/19 14:42:59 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:27:07 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

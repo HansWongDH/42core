@@ -6,9 +6,11 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:25:49 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 02:50:04 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:28:45 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
