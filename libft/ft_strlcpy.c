@@ -6,16 +6,16 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 11:09:02 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 22:06:15 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:00:20 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
-	int		ret;
+	size_t	ret;
 
 	ret = 0;
 	i = 0;

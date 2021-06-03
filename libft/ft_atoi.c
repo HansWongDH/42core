@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 09:10:36 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/25 22:43:05 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:41:57 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	ft_atoi(const char *str)
 	{
 		i = i * 10 + (*str - '0');
 		str++;
-		if (i != (i * 10) / 10 && sign > 0)
+		if (i != (i * 2) / 2 && sign > 0)
 			return (-1);
-		if (i != (i * 10) / 10 && sign < 0)
+		if (i != (i * 2) / 2 && sign < 0)
 			return (0);
 	}
 	return ((long)sign * i);

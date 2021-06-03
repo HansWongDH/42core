@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 12:32:34 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/05/26 19:14:54 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:17:08 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	int		size;
 
+	if (!s)
+		return (NULL);
 	size = numstr((char *)s, c);
 	arr = malloc(sizeof(char *) * (size + 1));
 	if (!arr)
