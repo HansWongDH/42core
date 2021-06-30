@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/06/30 21:51:32 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/30 22:28:40 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,19 @@ int	processline(char **save, char **line)
 	char	*hold;
 
 	len = 0;
-	while (*save[len] && *save[len] != '\n')
+	while ((*save)[len] && (*save)[len] != '\n')
 		len++;
-	if (*save[len] == '\n')
+	if ((*save)[len] == '\n')
 	{
 		*line = ft_substr(*save, 0, len);
-		hold = ft_strdup(*save + len );
-		freestr(save);
-		*save = hold;
+		if ((*save)[len + 1] != '\0')
+		{
+			hold = ft_strdup(*save + len + 1);
+			freestr(save);
+			*save = hold;
+		}
+		else
+			freestr(save);
 	}
 	return (1);
 }
@@ -44,7 +49,7 @@ int	checkEOF(char *buf, char **save, char **line)
 	if (buf[0] == '\0')
 	{
 		*line = malloc(sizeof(char) * 1);
-		*line[0] = '\0';
+		(*line)[0] = '\0';
 	}
 	else
 	{
@@ -53,7 +58,6 @@ int	checkEOF(char *buf, char **save, char **line)
 	}
 	return (0);
 }
-
 
 int	get_next_line(int fd, char **line)
 {
@@ -64,7 +68,6 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line)
 		return (-1);
-	
 	ret = read(fd, buf, BUFFER_SIZE);
 	while (ret > 0)
 	{
@@ -85,3 +88,4 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	return (checkEOF(buf, &save[fd], line));
 }
+
