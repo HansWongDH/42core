@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/06/30 08:51:40 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/30 09:29:10 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ int	processline(char *save, char **line)
 
 int	get_next_line(int fd, char **line)
 {
-	char		*buf;
+	char		buf[BUFFER_SIZE + 1];
 	char		*str;
 	static char	*save[4000];
 
-	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (fd < 0 || line == NULL || !buf)
+	if (fd < 0 || line == NULL)
 		return (-1);
 	while (read(fd, buf, BUFFER_SIZE) > 0)
 	{
@@ -61,5 +60,6 @@ int	get_next_line(int fd, char **line)
 	if (read(fd, buf, BUFFER_SIZE) < 0)
 		return (-1);
 	*line = ft_strdup(save[fd]);
+	freestr(save[fd]);
 	return (0);
 }
