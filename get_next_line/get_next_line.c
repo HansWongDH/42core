@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/06/30 09:29:10 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/06/30 14:19:17 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,59 @@
 
 void	freestr(char *str)
 {
-	free(str);
-	str = NULL;
+	if (str != NULL)
+	{
+		free(str);
+		str = NULL;
+	}
 }
 
 int	processline(char *save, char **line)
 {
 	int		len;
-	char	*ret;
 	char	*hold;
 
 	len = 0;
-	ret = ft_strchr(save, '\n');
-	if (!ret)
-		return (-1);
-	len = (ft_strlen(save) - ft_strlen(ret));
-	*line = ft_substr(save, 0, len);
-	hold = ft_strdup(save + len);
-	freestr(save);
-	save = hold;
+	while (save[len] && save[len] != '\n')
+		len++;
+	if (save[len] == '\n')
+	{
+		*line = ft_substr(save, 0, len);
+		hold = ft_strdup(save + len);
+		freestr(save);
+		save = hold;
+		freestr(hold);
+	}
 	return (1);
 }
+
+int	checkEOF(char *buf, char *save, char **line)
+{
+	if (buf[0] == '\0')
+	{
+		*line = malloc(sizeof(char) * 1);
+		*line[0] = '\0';
+	}
+	else if (save)
+	{
+		*line = ft_strdup(save);
+		freestr(save);
+	}
+	return (0);
+}
+
 
 int	get_next_line(int fd, char **line)
 {
 	char		buf[BUFFER_SIZE + 1];
 	char		*str;
-	static char	*save[4000];
+	static char	*save[400];
 
-	if (fd < 0 || line == NULL)
+	if (fd < 0 || !line)
 		return (-1);
 	while (read(fd, buf, BUFFER_SIZE) > 0)
 	{
-		if (save[fd] == NULL)
+		if (!save[fd])
 			save[fd] = ft_strdup(buf);
 		else
 		{
@@ -59,7 +79,5 @@ int	get_next_line(int fd, char **line)
 	}
 	if (read(fd, buf, BUFFER_SIZE) < 0)
 		return (-1);
-	*line = ft_strdup(save[fd]);
-	freestr(save[fd]);
-	return (0);
+	return (checkEOF(buf, save[fd], line));
 }
