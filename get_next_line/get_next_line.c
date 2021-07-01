@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/07/01 09:21:37 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/07/01 20:04:28 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,12 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line)
 		return (-1);
-	ret = read(fd, buf, BUFFER_SIZE);
+	ret = 1;
 	while (ret > 0)
 	{
+		ret = read(fd, buf, BUFFER_SIZE);
+		if (ret < 0)
+			break ;
 		buf[ret] = '\0';
 		if (!save)
 			save = ft_strdup(buf);
@@ -84,7 +87,6 @@ int	get_next_line(int fd, char **line)
 		}
 		if ((ft_strchr(save, '\n')))
 			return (processline(&save, line, ret));
-		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	return (checkEOF(&save, line, ret));
 }
