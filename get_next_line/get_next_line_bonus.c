@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/07/01 22:30:37 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/07/01 22:33:14 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	freestr(char **str)
 {
@@ -72,7 +72,7 @@ int	processline(char **save, char **line, int ret)
 int	get_next_line(int fd, char **line)
 {
 	char		buf[BUFFER_SIZE + 1];
-	static char	*save;
+	static char	*save[1000];
 	int			ret;
 
 	if (fd < 0 || !line || BUFFER_SIZE < 0)
@@ -84,12 +84,12 @@ int	get_next_line(int fd, char **line)
 		if (ret < 0)
 			break ;
 		buf[ret] = '\0';
-		if (!save)
-			save = ft_strdup(buf);
+		if (!save[fd])
+			save[fd] = ft_strdup(buf);
 		else
-			staticstack(&save, buf);
-		if ((ft_strchr(save, '\n')))
-			return (processline(&save, line, ret));
+			staticstack(&save[fd], buf);
+		if ((ft_strchr(save[fd], '\n')))
+			return (processline(&save[fd], line, ret));
 	}
-	return (checkEOF(&save, line, ret));
+	return (checkEOF(&save[fd], line, ret));
 }
