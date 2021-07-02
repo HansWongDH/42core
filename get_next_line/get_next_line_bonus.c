@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/07/02 09:56:54 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/07/02 10:20:19 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ int	get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line || BUFFER_SIZE < 0)
 		return (-1);
-	if (!save[fd])
-		save[fd] = ft_calloc(1, 1);
 	ret = 1;
 	while (ret > 0)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret < 0)
 			break ;
+		if (!save[fd])
+			save[fd] = ft_calloc(1, 1);
 		buf[ret] = '\0';
 		str = ft_strjoin(save[fd], buf);
 		freestr(&save[fd]);
