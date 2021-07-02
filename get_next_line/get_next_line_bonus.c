@@ -6,7 +6,7 @@
 /*   By: wding-ha <wding-ha@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 08:31:29 by wding-ha          #+#    #+#             */
-/*   Updated: 2021/07/01 22:33:14 by wding-ha         ###   ########.fr       */
+/*   Updated: 2021/07/02 09:56:54 by wding-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,26 @@ void	freestr(char **str)
 	}
 }
 
-void	staticstack(char **save, char *buf)
+void	*ft_calloc(size_t num, size_t size)
 {
-	char	*str;
+	int		tol;
+	void	*ret;
+	int		i;
 
-	str = ft_strjoin(*save, buf);
-	freestr(save);
-	*save = str;
+	tol = num * size;
+	ret = malloc(num * size);
+	if (ret == NULL)
+		return (NULL);
+	i = 0;
+	while (i < tol)
+	{
+		((char *)ret)[i] = '\0';
+		i++;
+	}
+	return (ret);
 }
 
-int	checkEOF(char **save, char **line, int ret)
-{
-	if (ret < 0)
-		return (-1);
-	if (*save == NULL && ret == 0)
-	{
-		*line = malloc(sizeof(char) * 1);
-		(*line)[0] = '\0';
-	}
-	else
-	{
-		*line = ft_strdup(*save);
-		freestr(save);
-	}
-	return (0);
-}
-
-int	processline(char **save, char **line, int ret)
+int	processline(char **save, char **line)
 {
 	int		len;
 	char	*hold;
@@ -61,11 +54,13 @@ int	processline(char **save, char **line, int ret)
 		hold = ft_strdup(&((*save)[len + 1]));
 		freestr(save);
 		*save = hold;
-		if ((*save)[0] == '\0')
-			freestr(save);
 	}
 	else
-		return (checkEOF(save, line, ret));
+	{
+		*line = ft_strdup(*save);
+		freestr(save);
+		return (0);
+	}
 	return (1);
 }
 
@@ -74,9 +69,12 @@ int	get_next_line(int fd, char **line)
 	char		buf[BUFFER_SIZE + 1];
 	static char	*save[1000];
 	int			ret;
+	char		*str;
 
 	if (fd < 0 || !line || BUFFER_SIZE < 0)
 		return (-1);
+	if (!save[fd])
+		save[fd] = ft_calloc(1, 1);
 	ret = 1;
 	while (ret > 0)
 	{
@@ -84,12 +82,13 @@ int	get_next_line(int fd, char **line)
 		if (ret < 0)
 			break ;
 		buf[ret] = '\0';
-		if (!save[fd])
-			save[fd] = ft_strdup(buf);
-		else
-			staticstack(&save[fd], buf);
+		str = ft_strjoin(save[fd], buf);
+		freestr(&save[fd]);
+		save[fd] = str;
 		if ((ft_strchr(save[fd], '\n')))
-			return (processline(&save[fd], line, ret));
+			return (processline(&save[fd], line));
 	}
-	return (checkEOF(&save[fd], line, ret));
+	if (ret < 0)
+		return (-1);
+	return (processline(&save[fd], line));
 }
